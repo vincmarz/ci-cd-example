@@ -4,7 +4,6 @@ pipeline {
         registry = "vincmarz/go-http-server"
         GOCACHE = "/tmp"
     }
-    stages {
 podTemplate(label: 'mypod', containers: [
     containerTemplate(name: 'docker', image: 'docker', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:v1.7.3', command: 'cat', ttyEnabled: true)
@@ -32,7 +31,6 @@ podTemplate(label: 'mypod', containers: [
         }
 
     }
-}
 
 
 
