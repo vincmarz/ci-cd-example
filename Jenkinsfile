@@ -3,12 +3,18 @@ pipeline {
     registry = "vincmarz/ci-cd-example"
     registryCredential = 'DockerHub'
   }
- agent any
-   stages {
-    stage('build') {
+  stages {
+    stage('Hello') {
       steps {
          sh 'echo "Hello, World (Docker for Developers)"'
       }
     }
-   }
+    stage('Build') { 
+      agent {
+          docker { 
+            image 'golang' 
+           }
+      } 
+    }
+  } 
 }  
