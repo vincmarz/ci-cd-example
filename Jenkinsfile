@@ -1,4 +1,5 @@
 pipeline {
+ agent any
  environment {
     registry = "vincmarz/ci-cd-example"
     registryCredential = 'DockerHub'
