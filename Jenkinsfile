@@ -15,7 +15,10 @@ pipeline {
           docker { 
             image 'golang' 
            }
+      }
+      steps {
       } 
+  
     }
   } 
 }  
