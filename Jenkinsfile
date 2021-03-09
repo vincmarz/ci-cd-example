@@ -1,9 +1,13 @@
 pipeline {
- agent { docker { image 'alpine' } }
+ environment {
+    registry = "vincmarz/ci-cd-example"
+    registryCredential = 'DockerHub'
+  }
+ agent any
    stages {
     stage('build') {
       steps {
-         sh 'echo "Hello, World (Docker for Developersi)"'
+         sh 'echo "Hello, World (Docker for Developers)"'
       }
     }
    }
