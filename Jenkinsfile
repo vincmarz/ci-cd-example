@@ -17,6 +17,9 @@ pipeline {
                 sh 'go version'
                 sh 'mkdir -p /home/jenkins/go/src/hello-world'
                 sh 'cd /home/jenkins/go/src'
+                sh 'cp -r ${WORKSPACE}/* /home/jenkins/go/src/hello-world'
+                // Build the app.
+                sh 'go build'
                 
             }
         }         
