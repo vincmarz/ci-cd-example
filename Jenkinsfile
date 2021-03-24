@@ -1,24 +1,12 @@
 pipeline {
- agent any
- environment {
-    registry = "vincmarz/ci-cd-example"
-    registryCredential = 'DockerHub'
-  }
-  stages {
-    stage('Hello') {
-      steps {
-         sh 'echo "Hello, World (Docker for Developers)"'
-      }
+    agent {
+        docker { image 'node:14-alpine' }
     }
-    stage('Build') { 
-      agent {
-          docker { 
-            image 'golang' 
-           }
-      }
-      steps {
-         sh 'echo "Hello build"'
-      }  
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
     }
-  } 
-}  
+}
