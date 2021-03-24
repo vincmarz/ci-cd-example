@@ -4,7 +4,6 @@ podTemplate(containers: [
 
     node(POD_LABEL) {
         stage('Get a Golang project') {
-            git url: 'https://github.com/hashicorp/terraform.git'
             container('golang') {
                 stage('Build a Go project') {
                     sh """
