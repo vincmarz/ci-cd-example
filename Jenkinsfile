@@ -1,19 +1,21 @@
-podTemplate(containers: [
-          containerTemplate(name: 'golang', image: 'golang:1.8.0', ttyEnabled: true, command: 'cat')
-  ]) {
-
-    node(POD_LABEL) {
-        stage('Get a Golang project') {
-            container('golang') {
-                stage('Build a Go project') {
-                    sh """
-                    mkdir -p /go/src/github.com/hashicorp
-                    ln -s `pwd` /go/src/github.com/hashicorp/terraform
-                    cd /go/src/github.com/hashicorp/terraform && make core-dev
-                    """
-                }
-            }
-        }
-
+pipeline {
+    agent any
+    tools {
+        go 'go-1.14'
     }
+    environment {
+        GO111MODULE = 'on'
+        CGO_ENABLED = 0 
+        GOPATH = "${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"
+    }
+    stages {
+         stage('Pre Test') {
+            steps {
+                echo 'Installing dependencies'
+                sh 'go version'
+                sh 'go get -u golang.org/x/lint/golint'
+            }
+        }         
+    }
+          
 }
