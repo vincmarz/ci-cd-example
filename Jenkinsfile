@@ -15,8 +15,8 @@ pipeline {
             steps {
                 echo 'Installing dependencies'
                 sh 'go version'
-                sh 'mkdir -p ${GOPATH}/src/hello-world'
-                sh 'cd ${GOPATH}/src'
+                sh 'mkdir -p /home/jenkins/go/src/hello-world'
+                sh 'cd /home/jenkins/go/src'
                 
             }
         }         
