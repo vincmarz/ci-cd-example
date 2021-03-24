@@ -1,5 +1,5 @@
 podTemplate(containers: [
-    containerTemplate(name: 'golang', image: 'vincmarz/go-http-server', ttyEnabled: true)
+    containerTemplate(name: 'golang', image: 'vincmarz/go-http-server')
   ]) {
 
     node(POD_LABEL) {
