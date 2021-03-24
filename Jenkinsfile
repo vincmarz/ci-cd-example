@@ -17,8 +17,8 @@ pipeline {
            }
       }
       steps {
-      } 
-        '' 
+         sh 'echo "Hello build"'
+      }  
     }
   } 
 }  
