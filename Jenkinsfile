@@ -6,8 +6,8 @@ pipeline {
     environment {
         GO111MODULE = 'on'
         CGO_ENABLED = 0 
-        //GOPATH = "${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"
-        registry = "vincmarz/go-http-server"
+        GOPATH = "${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"
+        //registry = "vincmarz/go-http-server"
         GOCACHE = "/tmp"
     }
     stages {
