@@ -8,9 +8,9 @@ podTemplate(containers: [
             container('golang') {
                 stage('Build a Go project') {
                     sh """
-                    cd ${GOPATH}/src
-                    mkdir -p ${GOPATH}/src/hello-world
-                    cp -r ${WORKSPACE}/* ${GOPATH}/src/hello-world
+                    cd /go/src
+                    mkdir -p /go/src/hello-world
+                    cp -r ${WORKSPACE}/* /go/src/hello-world
                     go build
                     """
                 }
