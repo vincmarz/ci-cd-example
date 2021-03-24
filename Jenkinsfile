@@ -7,7 +7,7 @@ pipeline {
         GO111MODULE = 'on'
         CGO_ENABLED = 0 
         GOPATH = "${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"
-        //registry = "vincmarz/go-http-server"
+        registry = "vincmarz/go-http-server"
         GOCACHE = "/tmp"
     }
     stages {
