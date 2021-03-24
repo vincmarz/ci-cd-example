@@ -19,8 +19,8 @@ pipeline {
                 sh 'cd /home/jenkins/go/src'
                 sh 'cp -r ${WORKSPACE}/* /home/jenkins/go/src/hello-world'
                 //Create go.mod file
-                sh 'go mod init'
-                // Build the app.
+                sh 'go mod init hello-world/main'
+                // Build the app
                 sh 'go build'
                 
             }
