@@ -5,8 +5,7 @@ pipeline {
     }
     environment {
         GO111MODULE = 'on'
-        CGO_ENABLED = 0 
-        GOPATH = "${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"
+        CGO_ENABLED = 0
         registry = "vincmarz/go-http-server"
         GOCACHE = "/tmp"
     }
@@ -22,9 +21,19 @@ pipeline {
                 sh 'go mod init hello-world/main'
                 // Build the app
                 sh 'go build'
-                
             }
-        }         
+         }
+        stage('Test') {
+            steps {
+                sh 'mkdir -p /home/jenkins/go/src/hello-world'
+                sh 'cd /home/jenkins/go/src'
+                sh 'cp -r ${WORKSPACE}/* /home/jenkins/go/src/hello-world'
+                echo 'Remove cached test results'
+                sh 'go clean -cache'
+                echo 'Run Unit Tests'
+                sh 'go test ./... -v -short'
+            }
+        }    
     }
           
 }
