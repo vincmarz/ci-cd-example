@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         go 'go1.14'
-        docker 'default-docker'
+        dockerTool 'default-docker'
     }
     environment {
         GO111MODULE = 'on'
