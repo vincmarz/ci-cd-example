@@ -44,10 +44,9 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) {
                         appimage.push()
                         appimage.push('latest')
+                     }
                     }
-                }
             }
-        
+        }         
     }
-          
 }
