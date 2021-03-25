@@ -40,6 +40,7 @@ pipeline {
                 registryCredential = 'DockerHub'
             }
             steps {
+                sh 'docker version'
                 script {
                     def appimage = docker.build registry + ":$BUILD_NUMBER"
                     docker.withRegistry( '', registryCredential ) {
