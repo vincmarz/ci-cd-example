@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         go 'go1.14'
-        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'default-docker'
     }
     environment {
         GO111MODULE = 'on'
